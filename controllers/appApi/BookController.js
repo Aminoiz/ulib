@@ -1,9 +1,9 @@
 const Controller = require('./Controller')
-const Post = require(`${config.path.model}/book`);
+const Book = require(`${config.path.model}/book`);
 
 module.exports = new class SampleController extends Controller {
     index(req , res) {
-      Post.find({}, (err, books) => {
+      Book.find({}, (err, books) => {
         if(err){
           res.send(err);
         }
@@ -14,7 +14,7 @@ module.exports = new class SampleController extends Controller {
     add(req, res) {
       this.model.Book({
         title : req.body.title,
-        auther : req.body.auther,
+        author : req.body.author,
         stack : req.body.stack,
         publisher : req.body.publisher,
         publishDate : req.body.publishDate,

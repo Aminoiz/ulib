@@ -4,7 +4,7 @@ const timestamps = require('mongoose-timestamp');
 
 const BookSchema = new Schema({
   title : { type: String , required: true },
-  auther : { type: String , required: true },
+  author : { type: String , required: true },
   stack : { type: Number , required: true },
   publisher : { type: String, default: 'ناشناخته'},
   publishDate : { type: Date, default: Date.now() },

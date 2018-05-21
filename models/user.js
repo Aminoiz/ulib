@@ -9,8 +9,8 @@ const UserSchema = new Schema({
   studentalCode : { type: Number , required: true },
   password: { type : String , required: true},
   email : { type : String , required: true },
-  reserved : { type : Object , default : {count:0} },
-  favourites : { type : Object , default : {count:0} }
+  reserved : { type : Array , default : [] },
+  favourites : { type : Array , default : [] }
 });
 
 UserSchema.plugin(timestamps,  {
