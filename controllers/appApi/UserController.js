@@ -13,6 +13,7 @@ module.exports = new class UserController extends Controller{
         res.json(user);
       })
     });
+  }
 
   reserve(req, res) {
     User.findById(req.params.id, (err, user) => {
@@ -23,11 +24,18 @@ module.exports = new class UserController extends Controller{
             if(err) {
               res.send(err);
             }
-            res.json(user);
-          });
+            book.stack--;
+            book.save(err => {
+              if(err) {
+                res.send(err);
+              }
+              res.json(user);
+            })
+          })
+        } else {
+          res.json({message: "کتاب موجود نیست"});
         }
-        res.json({message: "کتاب موجود نیست"});
-      });
+      })
     });
   }
 }

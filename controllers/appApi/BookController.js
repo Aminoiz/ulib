@@ -30,4 +30,46 @@ module.exports = new class SampleController extends Controller {
     });
   }
 
+  update(req, res) {
+    Book.findById(req.params.id, (err, book) => {
+      if(err){
+        res.send(err);
+      }
+      book.stack = req.body.stack;
+      book.save(err => {
+        if(err){
+          res.send(err);
+        }
+        res.json(book);
+      });
+    });
+  }
+
+  searchByTitle(req, res) {
+    Book.find({title:req.params.title} , (err, books) => {
+      if(err){
+        res.send(err);
+      }
+      res.json(books);
+    });
+  }
+
+  searchByAuthor(req, res) {
+    Book.find({author:req.params.author} , (err, books) => {
+      if(err){
+        res.send(err);
+      }
+      res.json(books);
+    });
+  }
+
+  searchByPublisher(req, res) {
+    Book.find({publisher:req.params.publisher} , (err, books) => {
+      if(err){
+        res.send(err);
+      }
+      res.json(books);
+    });
+  }
+
 }
