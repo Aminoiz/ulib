@@ -5,9 +5,9 @@ module.exports = {
     secret : '&=L^XHy!MPw2e**#KAk3R@SMFT3nK+QGN2YkZkcaPPptEky4*PjhD@AaNz++*2Jr',
     path : {
         app : {
-            transform : path.resolve('./transforms/appApi'),
-            controller : path.resolve('./controllers/appApi'),
+            transform : path.resolve('./modules/transforms/appApi'),
+            controller : path.resolve('./modules/controllers/appApi'),
         },
-        model : path.resolve('./models'),
+        model : path.resolve('./modules/models'),
     }
 }
