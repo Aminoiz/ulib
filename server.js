@@ -7,7 +7,7 @@ const expressValidator = require('express-validator');
 var useragent = require('express-useragent');
 global.config = require('./modules/config');
 
-mongoose.connect('mongodb://127.0.0.1:27017/Ulib' , { useMongoClient : true });
+mongoose.connect('mongodb://admin:BxaGmA2a5t@ds147180.mlab.com:47180/ulibdb' , { useMongoClient : true });
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended : false }));
@@ -20,6 +20,6 @@ const router = require('./modules/routes');
 
 app.use('/api' , router)
 
-app.listen(config.port , () => {
-    console.log(`Server running at Port ${config.port}`)
+app.listen(config.port, '0.0.0.0', function(err) {
+    console.log(`Server running at Port ${config.port}`);
 });
