@@ -15,23 +15,31 @@ router.post('/login' , AuthController.login.bind(AuthController));
 router.post('/register' , AuthController.register.bind(AuthController));
 
 // Index
-router.get('/' , apiAuth, BookController.index.bind(BookController));
+//router.get('/' , apiAuth, BookController.index.bind(BookController));
+router.get('/' , BookController.index.bind(BookController));
 
 // Add a book
-router.post('/book' , apiAuth, BookController.add.bind(BookController));
+//router.post('/book' , apiAuth, BookController.add.bind(BookController));
+router.post('/book' , BookController.add.bind(BookController));
 
 // Update
-router.post('/update/:id' , apiAuth, BookController.update.bind(BookController));
+//router.post('/update/:id' , apiAuth, BookController.update.bind(BookController));
+router.post('/update/:id' , BookController.update.bind(BookController));
 
 // Favourite
-router.post('/favourite/:id' , apiAuth, UserController.favourite.bind(UserController));
+//router.post('/favourite/:id' , apiAuth, UserController.favourite.bind(UserController));
+router.post('/favourite/:id' , UserController.favourite.bind(UserController));
 
 // Reserve
-router.post('/reserve/:id' , apiAuth, UserController.reserve.bind(UserController));
+//router.post('/reserve/:id' , apiAuth, UserController.reserve.bind(UserController));
+router.post('/reserve/:id' , UserController.reserve.bind(UserController));
 
 // Search
-router.get('/search/byAuthor/:author' , apiAuth, BookController.searchByAuthor.bind(BookController));
-router.get('/search/byTitle/:title' , apiAuth, BookController.searchByTitle.bind(BookController));
-router.get('/search/byPublisher/:publisher' , apiAuth, BookController.searchByPublisher.bind(BookController));
+//router.get('/search/byAuthor/:author' , apiAuth, BookController.searchByAuthor.bind(BookController));
+//router.get('/search/byTitle/:title' , apiAuth, BookController.searchByTitle.bind(BookController));
+//router.get('/search/byPublisher/:publisher' , apiAuth, BookController.searchByPublisher.bind(BookController));
+router.get('/search/byAuthor/:author' , BookController.searchByAuthor.bind(BookController));
+router.get('/search/byTitle/:title' , BookController.searchByTitle.bind(BookController));
+router.get('/search/byPublisher/:publisher' , BookController.searchByPublisher.bind(BookController));
 
 module.exports = router;
